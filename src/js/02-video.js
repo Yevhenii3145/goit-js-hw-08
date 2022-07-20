@@ -4,6 +4,8 @@ const player = new Player('handstick', {
   width: 640,
 });
 
+// Консоль видае помилки
+
 //  require(['https://player.vimeo.com/video/236203659'], function (Player) {
 //         const iframe = document.querySelector('iframe');
 //         const player = new Player(iframe);
@@ -22,3 +24,13 @@ const player = new Player('handstick', {
 // handstickPlayer.on('play', function () {
 //   console.log('played the handstick video!');
 // });
+
+// const options = {
+//   width: 640,
+//   loop: true,
+// };
+// const madeInNy = new Vimeo.Player('vimeo-player', options);
+// const handstick = new Vimeo.Player(
+//   document.getElementById('handstick'),
+//   options
+// );
