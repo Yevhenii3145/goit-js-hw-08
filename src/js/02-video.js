@@ -1,36 +1,21 @@
 import Player from '@vimeo/player';
-const player = new Player('handstick', {
-  id: 'vimeo-player',
-  width: 640,
-});
+import throttle from 'lodash.throttle';
 
-// Консоль видае помилки
+const iframe = document.querySelector('iframe');
+const player = new Player(iframe);
 
-//  require(['https://player.vimeo.com/video/236203659'], function (Player) {
-//         const iframe = document.querySelector('iframe');
-//         const player = new Player(iframe);
+targetTime();
 
-// const options = {
-//   id: 'vimeo-player',
-//   width: 640,
-//   loop: true,
-// };
-// const player = new Vimeo.Player('made-in-ny', options);
+function setTimeToLocale(e) {
+  localStorage.setItem('videoplayer-current-time', e.seconds);
+  //   console.log('1234521435');
+}
 
-// const iframe = document.querySelector('iframe');
-// const player = new Vimeo.Player(iframe);
+player.on('timeupdate', throttle(setTimeToLocale, 1000));
 
-// const handstickPlayer = new Vimeo.Player('handstick');
-// handstickPlayer.on('play', function () {
-//   console.log('played the handstick video!');
-// });
-
-// const options = {
-//   width: 640,
-//   loop: true,
-// };
-// const madeInNy = new Vimeo.Player('vimeo-player', options);
-// const handstick = new Vimeo.Player(
-//   document.getElementById('handstick'),
-//   options
-// );
+function targetTime(e) {
+  const time = localStorage.getItem('videoplayer-current-time');
+  if (time) {
+    player.setCurrentTime(time);
+  }
+}
