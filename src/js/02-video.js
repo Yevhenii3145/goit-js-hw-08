@@ -6,14 +6,14 @@ const player = new Player(iframe);
 
 targetTime();
 
-function setTimeToLocale(e) {
-  localStorage.setItem('videoplayer-current-time', e.seconds);
-  //   console.log('1234521435');
-}
-
 player.on('timeupdate', throttle(setTimeToLocale, 1000));
 
-function targetTime(e) {
+function setTimeToLocale(e) {
+  localStorage.setItem('videoplayer-current-time', e.seconds);
+  console.log('Работает))');
+}
+
+function targetTime() {
   const time = localStorage.getItem('videoplayer-current-time');
   if (time) {
     player.setCurrentTime(time);
