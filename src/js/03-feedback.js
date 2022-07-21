@@ -35,6 +35,13 @@ function fillFormFromStorage() {
   );
   if (parsedFormData) {
     refs.input.value = parsedFormData.email;
+    if (refs.input.value === 'undefined') {
+      refs.input.value = '';
+    }
+
     refs.textarea.value = parsedFormData.message;
+    if (refs.textarea.value === 'undefined') {
+      refs.textarea.value = '';
+    }
   }
 }
