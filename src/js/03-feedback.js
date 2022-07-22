@@ -34,12 +34,12 @@ function fillFormFromStorage() {
     localStorage.getItem('feedback-form-state')
   );
   if (parsedFormData) {
-    refs.input.value = parsedFormData.email || parsedFormData.email;
+    refs.input.value = parsedFormData.email;
     if (refs.input.value === 'undefined') {
       refs.input.value = '';
     }
 
-    refs.textarea.value = parsedFormData.message || parsedFormData.message;
+    refs.textarea.value = parsedFormData.message;
     if (refs.textarea.value === 'undefined') {
       refs.textarea.value = '';
     }
